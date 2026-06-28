@@ -1,0 +1,25 @@
+name: Generate GitHub User Stats
+
+on:
+  schedule:
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+
+jobs:
+  stats:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      
+    steps:
+    - uses: actions/checkout@v6
+
+    - name: Generate the user stats image
+      uses: cicirello/user-statistician@v1
+      with:
+        image-file: images/userstats.svg
+        include-title: false
+        hide-keys: joined, mostStarred, mostForked, followers, following
+        max-languages: 10
+      env:
+        GITHUB_TOKEN: ${{secrets.GH_PAT}}
