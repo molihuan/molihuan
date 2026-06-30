@@ -2,7 +2,7 @@ name: Generate GitHub User Stats
 
 on:
   schedule:
-    - cron: '0 3 * * *'
+    - cron: '0 19 1,16 * *'
   workflow_dispatch:
 
 jobs:
@@ -21,5 +21,6 @@ jobs:
         include-title: false
         hide-keys: joined, mostStarred, mostForked, followers, following
         max-languages: 10
+        locale: en
       env:
         GITHUB_TOKEN: ${{secrets.GH_PAT}}
