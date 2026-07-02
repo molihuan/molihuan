@@ -21,6 +21,6 @@ jobs:
         include-title: false
         hide-keys: joined, mostStarred, mostForked, followers, following
         max-languages: 10
-        locale: zh-Hans
+        locale: en
       env:
         GITHUB_TOKEN: ${{secrets.GH_PAT}}
